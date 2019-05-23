@@ -3,6 +3,7 @@
 #include "AppDelegate.h"
 #include "HelloWorldScene.h"
 #include "gamemenu.h"
+#include "scenemanager.h"
 
 // #define USE_AUDIO_ENGINE 1
 // #define USE_SIMPLE_AUDIO_ENGINE 1
@@ -97,11 +98,13 @@ bool AppDelegate::applicationDidFinishLaunching() {
     register_all_packages();
 
     // create a scene. it's an autorelease object
-    auto scene1 = gamemenu::createScene();
-	auto scene = HelloWorld::createScene();
+ /*   auto scene1 = gamemenu::createScene();
+	auto scene = HelloWorld::createScene();*/
 
     // run
-    director->runWithScene(scene1);
+/*    director->runWithScene(scene1);*/
+
+	scenemanager::getInstance()->changeScene(scenemanager::en_MenuScene);
 
     return true;
 }
