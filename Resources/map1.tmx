@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.2" tiledversion="1.2.4" orientation="orthogonal" renderorder="right-down" width="48" height="48" tilewidth="64" tileheight="64" infinite="0" nextlayerid="11" nextobjectid="1">
+ <tileset firstgid="1" name="地板" tilewidth="64" tileheight="64" tilecount="56" columns="8">
+  <image source="地板合计.png" width="512" height="480"/>
+  <tile id="0">
+   <properties>
+    <property name="collidable" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="8">
+   <properties>
+    <property name="collidable" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="27">
+   <properties>
+    <property name="collidable" type="bool" value="false"/>
+   </properties>
+  </tile>
+ </tileset>
+ <layer id="9" name="ground" width="48" height="48">
+  <data encoding="base64" compression="zlib">
+   eJztwwEJAAAMBKEL8v1zLsdAwVVTVVVVVVVVVVVfPiX1/AE=
+  </data>
+ </layer>
+ <layer id="10" name="wall" width="48" height="48">
+  <data encoding="base64" compression="zlib">
+   eJzt2cEJwCAQBVE9pv+G04GIZv0B34AnxRk8rq0BQIanaKU8wC59ce8v3lv7ZxyVd59w6M869Gcd+rMO/VmH/qxDf9ahP+vQn3Xozzr0Zx366xwz89TRmXT/Ll95R29UObNOeXEv/o8AYI0XscwD6Q==
+  </data>
+ </layer>
+</map>
