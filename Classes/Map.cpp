@@ -18,6 +18,7 @@ bool GameMap::init()
 	std::vector<std::string> mapList;
 	mapList.resize(mapSum);
 	mapList = { "map1","map2" };
+	srand((unsigned)time(0));
 	int randomMapNum = rand() % mapSum;
 	while (randomMapNum == mapSum)
 		randomMapNum = rand() % mapSum;
@@ -26,23 +27,23 @@ bool GameMap::init()
 	return true;
 }
 
-void GameMap::setViewPointCenter(Vec2 position)
+void GameMap::setViewPointCenter(float duration,Vec2 position)
 {
 	int x = MAX(position.x, _screenWidth / 2);
 	int y = MAX(position.y, _screenHeight / 2);
 	x = MIN(x, (getMapSize().width *getTileSize().width - _screenWidth / 2));
 	y = MIN(y, (getMapSize().height *getTileSize().height - _screenHeight / 2));
-	Point actualPosition = Vec2(x, y);
-	Point centerOfView = Vec2(_screenWidth / 2, _screenHeight / 2);
+	Point actualPosition = Point(x, y);
+	Point centerOfView = Point(_screenWidth / 2, _screenHeight / 2);
 	Point viewPoint = centerOfView - actualPosition;
-	this->setPosition(viewPoint);
+	this->runAction(MoveTo::create(duration,viewPoint));
 }
 
 Vec2 GameMap::tileCoordForPosition(Vec2 position)
 {
-	int x = (int)(position.x / (getTileSize().width / CC_CONTENT_SCALE_FACTOR()));
+	float x = (int)(position.x / (getTileSize().width / CC_CONTENT_SCALE_FACTOR()));
 	float pointHeight = getTileSize().height / CC_CONTENT_SCALE_FACTOR();
-	int y = (int)((getMapSize().height*pointHeight - position.y) / pointHeight);
+	float y = (int)((getMapSize().height*pointHeight - position.y) / pointHeight);
 	return Vec2(x,y);
 }
 
@@ -55,11 +56,11 @@ void GameMap::setMap(const std::string& mapName)
 	_tilemap = TMXTiledMap::create(_mapName);
 	_tilemap->setAnchorPoint(Vec2::ZERO);
 	_tilemap->setPosition(Vec2::ZERO);
-	_tilemap->setScale(0.6);
+	_tilemap->setScale(0.3);
 	this->addChild(_tilemap,-1);
 	emptyTile = getMapSize().width*getMapSize().height;
 	_collidable = _tilemap->getLayer("wall");
-
+	
 	mapInfo.resize(getMapSize().width);
 	propInfo.resize(getMapSize().width);
 
@@ -134,7 +135,7 @@ Vec2 GameMap::randomPosition()
 
 void GameMap::updateEXPSprite(float delta)
 {
-	if (_count % 1 == 0 && _count % 3 != 0 && emptyTile-1 > propSum)
+	if (_count % 1 == 0 && _count % 30 != 0 && emptyTile-2 > propSum)
 	{
 		Sprite *expProp = Sprite::create("smallcrystal.png");
 		Vec2 position = randomPosition();
@@ -149,7 +150,7 @@ void GameMap::updateEXPSprite(float delta)
 
 void GameMap::updateHPSprite(float delta)
 {
-	if (_count % 3 == 0 && emptyTile-1> propSum)
+	if (_count % 3 == 0 && emptyTile-2> propSum)
 	{
 		Sprite *hpProp = Sprite::create("heart.png");
 		Vec2 position = randomPosition();

@@ -1,7 +1,7 @@
 #include "scenemanager.h"
 #include "gamemenu.h"
 
-scenemanager * scenemanager::s_SceneManager = NULL;
+/*scenemanager * scenemanager::s_SceneManager = NULL;
 
 scenemanager* scenemanager::getInstance()
 {
@@ -21,9 +21,10 @@ scenemanager* scenemanager::getInstance()
 	return s_SceneManager;
 }
 
-
+*/
 bool scenemanager::init() 
 {
+	
 	return true;
 }
 
@@ -55,6 +56,7 @@ void scenemanager::changeScene(SceneType enSceneType)
 		pDirector->runWithScene(scene);
 	else
 		pDirector->replaceScene(scene);
+
 }
 
 

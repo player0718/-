@@ -1,5 +1,7 @@
 #include "gamemenu.h"
 #include "SimpleAudioEngine.h"
+#include "Map.h"
+#include "GameScene.h"
 USING_NS_CC;
 
 Scene* gamemenu::createScene()
@@ -85,15 +87,15 @@ bool gamemenu::init() {
 
 
 	auto item1 = MenuItemImage::create(
-		"danji.png",
-		"lianji.png",
-		CC_CALLBACK_1(gamemenu::menuCloseCallback, this));
+		"djmode1.png",
+		"djmode2.png",
+		CC_CALLBACK_1(gamemenu::menubegingame_danji, this));
 
 	if (item1 == nullptr ||
 		item1->getContentSize().width <= 0 ||
 		item1->getContentSize().height <= 0)
 	{
-		problemLoading("danji.png' and 'lianji.png'");
+		problemLoading("djmode1.png' and 'djmode2.png'");
 	}
 	else
 	{
@@ -101,15 +103,15 @@ bool gamemenu::init() {
 	}
 
 	auto item2 = MenuItemImage::create(
-		"lianji.png",
-		"danji.png",
-		CC_CALLBACK_1(gamemenu::menuCloseCallback, this));
+		"ljmode1.png",
+		"ljmode2.png",
+		CC_CALLBACK_1(gamemenu::menubegingame_lianji, this));
 
 	if (item2 == nullptr ||
 		item2->getContentSize().width <= 0 ||
 		item2->getContentSize().height <= 0)
 	{
-		problemLoading("danji.png' and 'lianji.png'");
+		problemLoading("ljmode1.png' and 'ljmode2.png'");
 	}
 	else
 	{
@@ -128,6 +130,28 @@ void gamemenu::menuCloseCallback(Ref* pSender)
 {
 	
 	Director::getInstance()->end();
+
+
+
+}
+
+void gamemenu::menubegingame_danji(Ref* pSender)
+{
+
+	auto director = Director::getInstance();
+	auto scene = GameScene::createScene();
+	director->replaceScene(scene);
+
+
+
+}
+
+void gamemenu::menubegingame_lianji(Ref* pSender)
+{
+
+	auto director = Director::getInstance();
+	auto scene = GameMap::createScene();
+	director->replaceScene(scene);
 
 
 

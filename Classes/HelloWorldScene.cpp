@@ -29,7 +29,7 @@ USING_NS_CC;
 
 Scene* HelloWorld::createScene()
 {
-    return   HelloWorld::create();
+    return HelloWorld::create();
 }
 
 // Print useful error message instead of segfaulting when files are not there.
@@ -58,10 +58,10 @@ bool HelloWorld::init()
 
     // add a "close" icon to exit the progress. it's an autorelease object
     auto closeItem = MenuItemImage::create(
-                                           "vg_close.png",
+                                           "CloseNormal.png",
                                            "CloseSelected.png",
                                            CC_CALLBACK_1(HelloWorld::menuCloseCallback, this));
-	
+
     if (closeItem == nullptr ||
         closeItem->getContentSize().width <= 0 ||
         closeItem->getContentSize().height <= 0)
@@ -86,7 +86,7 @@ bool HelloWorld::init()
     // add a label shows "Hello World"
     // create and initialize a label
 
-    auto label = Label::createWithTTF("ARROW", "fonts/Marker Felt.ttf", 100);
+    auto label = Label::createWithTTF("Hello World", "fonts/Marker Felt.ttf", 24);
     if (label == nullptr)
     {
         problemLoading("'fonts/Marker Felt.ttf'");
@@ -95,91 +95,28 @@ bool HelloWorld::init()
     {
         // position the label on the center of the screen
         label->setPosition(Vec2(origin.x + visibleSize.width/2,
-                                origin.y + visibleSize.height - 1.5*label->getContentSize().height));
+                                origin.y + visibleSize.height - label->getContentSize().height));
 
         // add the label as a child to this layer
         this->addChild(label, 1);
     }
 
-	auto menu_name = Sprite::create("menu_name.png");
-	if (menu_name == nullptr)
-	{
-		problemLoading("'menu_name.png");
-	}
-	else
-	{
-		// position the sprite on the center of the screen
-		menu_name->setPosition(250, 500);
-		menu_name->setAnchorPoint(Point(0.5, 0.5));
-/*		Size size_back = menu_name->getContentSize();
-		float scaleX = (float)visibleSize.width / (float)size_back.width;
-		float scaleY = (float)visibleSize.height / (float)size_back.height;*/
-		 menu_name->setScale(2, 2);
-
-		// add the sprite as a child to this layer*/
-	this->addChild(menu_name, 1);
-	}
-	auto menu_begin1 = Sprite::create("danji.png");
-	
-	
     // add "HelloWorld" splash screen"
- 
-	if (menu_begin1 == nullptr)
-	{
-		problemLoading("'danji.png'");
-	}
-	else
-	{
-		
-			// position the sprite on the center of the screen
-			menu_begin1->setPosition(Vec2(visibleSize.width / 2 + origin.x, 400));
-		menu_begin1->setAnchorPoint(Point(0.5, 0.5));
-	/*	Size size_back = spirit_back->getContentSize();
-		float scaleX = (float)visibleSize.width / (float)size_back.width;
-		float scaleY = (float)visibleSize.height / (float)size_back.height;
-		spirit_back->setScale(scaleX, scaleY);*/
-
-		// add the sprite as a child to this layer
-		this->addChild(menu_begin1, 1);
-	}
-	auto menu_begin2 = Sprite::create("lianji.png");
-
-
-	if (menu_begin2 == nullptr)
-	{
-		problemLoading("'lianji.png'");
-	}
-	else
-	{
-
-		menu_begin2->setPosition(Vec2(visibleSize.width / 2 + origin.x, 250));
-		menu_begin2->setAnchorPoint(Point(0.5, 0.5));
-		this->addChild(menu_begin2, 1);
-	}
-
-
-	auto spirit_back = Sprite::create("bg.png");
-    if (spirit_back == nullptr)
+    auto sprite = Sprite::create("HelloWorld.png");
+    if (sprite == nullptr)
     {
-        problemLoading("'bg.png'");
+        problemLoading("'HelloWorld.png'");
     }
     else
     {
         // position the sprite on the center of the screen
-        spirit_back->setPosition(Vec2(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y));
-		spirit_back->setAnchorPoint(Point(0.5, 0.5));
-		Size size_back = spirit_back->getContentSize();
-		float scaleX = (float)visibleSize.width / (float)size_back.width;
-		float scaleY = (float)visibleSize.height / (float)size_back.height;
-		spirit_back->setScale(scaleX, scaleY);
+        sprite->setPosition(Vec2(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y));
 
         // add the sprite as a child to this layer
-        this->addChild(spirit_back, 0);
+        this->addChild(sprite, 0);
     }
     return true;
 }
-
-
 
 
 void HelloWorld::menuCloseCallback(Ref* pSender)

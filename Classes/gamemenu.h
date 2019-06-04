@@ -10,6 +10,8 @@ public:
 	 bool init();
 
 	void menuCloseCallback(Ref * pSender);
+	void menubegingame_danji(Ref * pSender);
+	void menubegingame_lianji(Ref * pSender);
 
 	CREATE_FUNC(gamemenu);
 };
