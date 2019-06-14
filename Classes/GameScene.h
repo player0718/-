@@ -2,84 +2,12 @@
 #define _GAMESCENE_H_
 #include "cocos2d.h"
 #include "PlayerBase.h"
+#include "ui/CocosGUI.h"
+
 USING_NS_CC;
+using namespace ui;
 
-/*class HP_MESS:public cocos2d::Sprite
-{
-public:
-	int coordX, coordY;
-
-	bool operator==(const HP_MESS &thv)
-	{
-		if (this->coordX == thv.coordX && this->coordY == thv.coordY)
-		{
-			return true;
-		}
-		else return false;
-	}
-	static HP_MESS* create(std::string filename, int randX, int randY)
-	{ 
-		HP_MESS *pRet = new(std::nothrow) HP_MESS(); 
-		if (pRet &&pRet->initWithFile(filename)&& pRet->init( randX,randY)) 
-		{ 
-			pRet->autorelease(); 
-			return pRet; 
-		} 
-		else 
-		{ 
-			delete pRet; 
-			pRet = nullptr;
-			return nullptr; 
-		} 
-	}
-	virtual bool init( int randX, int randY)
-	{
-		
-		 coordX = randX, coordY = randY;
-		return true;
-	}
-};*/
-
-/*class EXP_MESS:public cocos2d::Sprite
-{
-public:
-	Sprite* expProp;
-	int coordX, coordY;
-
-	bool operator==(const EXP_MESS &thv)
-	{
-		if (this->coordX == thv.coordX && this->coordY == thv.coordY)
-		{
-			return true;
-		}
-		else return false;
-	}
-	static EXP_MESS* create(std::string filename, int randX, int randY)
-	{
-		EXP_MESS *pRet = new(std::nothrow) EXP_MESS();
-		if (pRet &&pRet->initWithFile(filename)&& pRet->init( randX, randY))
-		{
-			pRet->autorelease();
-			return pRet;
-		}
-		else
-		{
-			delete pRet;
-			pRet = nullptr;
-			return nullptr;
-		}
-	}
-	virtual bool init( int randX, int randY)
-	{
-
-		coordX = randX, coordY = randY;
-		return true;
-	}
-};*/
-
-
-
-class GameScene : public cocos2d::Scene
+class GameScene : public cocos2d::Layer
 {
 private:
     TMXTiledMap* _tilemap;
@@ -92,19 +20,37 @@ private:
 	Vec2 _newposition;
 
 	int _count = 0;
+	int _downtime;
 	std::vector<std::vector<int>> propInfo; //储存地图上道具和障碍物的信息
 	int emptyTile , propSum = 0;
 
 	static cocos2d::Vector<Sprite*>hpVector;
 	static cocos2d::Vector<Sprite*>expVector;
+	cocos2d::Vector<Sprite*>arrowVector;
 
-	PlayerBase *_player1,*_player2;
+	Sprite *emptyExpBar, *expBar, *emptyHpBar, *hpBar;
+	Sprite *arrow;
+	Sprite *_skill1, *_skill2, *_skill3;
+	Sprite* dieScene;
+	cocos2d::ui::Text* level_text;
+	Layer *_layer1, *_layer2;
 	float blood = 0;
+
+	bool running1 = false;
+
+	////////////////////////////////////////////////////
+	//原Skill类代码
+	cocos2d::ui::Button* button_1;
+	cocos2d::ui::Button* button_2;
+	cocos2d::ui::Button* button_3;
+
+	int skill_id_1, skill_id_2, skill_id_3;
 
 
 	std::map<cocos2d::EventKeyboard::KeyCode, bool> keys;
 public:
-	
+	PlayerBase *_player1;
+
     static cocos2d::Scene* createScene();
 	virtual bool init();
 
@@ -113,6 +59,7 @@ public:
 	Vec2 positionForTileCoord(Vec2 coord);
 	void setMap(const std::string& mapName);  //初始化地图
 	void setSprite();  //初始化精灵
+	void setTouchController();
 	bool isCanPass(Vec2& coord); //判断是否有障碍物
 	bool isCanUpdate(Vec2& coord); //判断是否能刷新道具
 	Size getMapSize();
@@ -122,17 +69,47 @@ public:
 	void judgeEXPSprite(float delta);
 	void updateHPSprite(float delta);
 	void judgeHPSprite(float delta);
+	void barListener(float delta);
+	void deathListener(float delta);
+	void restartCount(float delta);
     Vec2 randomPosition();
-	Vec2 spawn(std::string& mapname);
+	Vec2 spawn();
 	std::string randomMap();
+
+	void animationcreate(int direct);
+	void ifhurt(float delta);
+	/*bool onTouchBegan(Touch* touch, Event* event);*/
 
 	CREATE_FUNC(GameScene);
 
-
+	void setSkillButton();
 
 	void keyPressedDuration(EventKeyboard::KeyCode code);
 	bool isKeyPressed(EventKeyboard::KeyCode keyCode);
-	bool canMove(Vec2& coord);
+	//bool canMove(Vec2& coord);
+
+
+	////////////////////////////////////////////////////
+	//原Skill类代码
+	std::string skillID_1();
+	std::string skillID_2();
+	std::string skillID_3();
+
+	void skillChoose(int id);
+
+	void atkUp();
+	void rangeUp();
+	void defUp();
+	void hpraiseUp();
+	void expraiseUp();
+	void speedUp();
+	void hpUp();
+	void atkUphpDown();
+	void rangeUpspeedDown();
+	void allUp();
+	void arrowBack();
+	void arrowLeftRight();
+	void arrowAhead();
 };
 
 #endif
