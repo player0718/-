@@ -1,6 +1,7 @@
 #include "gamemenu.h"
 #include "SimpleAudioEngine.h"
 #include "Map.h"
+#include "SelectLayer.h"
 #include "GameScene.h"
 USING_NS_CC;
 
@@ -150,7 +151,7 @@ void gamemenu::menubegingame_lianji(Ref* pSender)
 {
 
 	auto director = Director::getInstance();
-	auto scene = GameMap::createScene();
+	auto scene = SelectLayer::createScene();
 	director->replaceScene(scene);
 
 

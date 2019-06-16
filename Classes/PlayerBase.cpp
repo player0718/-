@@ -25,26 +25,26 @@ bool PlayerBase::expRaise(int num)
 	{
 		expOverflow = exp - expNeed;
 		level++;
-		expNeed += 50;
-		restartTime += 1;
+		expNeed *= level;
 		exp = expOverflow;
 		return true;
 	}
 	else return false;
 }
 
-void PlayerBase::die()
+bool PlayerBase::die()
 {
-	attack = false;
-	move = false;
-	collect = false;
+	if (hp <= 0)
+	{
+		attack = false;
+		return true;
+	}
+	else return false;
 }
 
-void PlayerBase::restart(Vec2 spawnpoint)
+/*void PlayerBase::restart(Vec2& spawnpoint)
 {
 	hp = hpLimit;
 	attack = true;
-	move = true;
-	collect = true;
-	this->setPosition(spawnpoint);
-}
+	player->setPosition(spawnpoint);
+}*/

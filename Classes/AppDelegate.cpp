@@ -27,9 +27,7 @@
 #include "Map.h"
 #include "GameScene.h"
 #include "gamemenu.h"
-#include "player.h"
-#include "GameOverScene.h"
-
+#include "ServerLayer.h"
 // #define USE_AUDIO_ENGINE 1
 // #define USE_SIMPLE_AUDIO_ENGINE 1
 
@@ -123,7 +121,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     register_all_packages();
 
     // create a scene. it's an autorelease object
-    auto scene = GameScene::createScene();
+    auto scene = gamemenu::createScene();
 
     // run
     director->runWithScene(scene);
