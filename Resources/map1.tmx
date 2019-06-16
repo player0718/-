@@ -38,12 +38,12 @@
   </data>
  </layer>
  <objectgroup id="13" name="player">
-  <object id="2" name="blue_player" x="1150.67" y="2758.67" width="792" height="245.333"/>
-  <object id="3" name="red_player" x="1145.45" y="63.6364" width="800" height="254.545"/>
+  <object id="2" name="blue_player" x="1170.67" y="2738.67" width="720" height="197.333"/>
+  <object id="3" name="red_player" x="1205.45" y="111.636" width="700" height="206.545"/>
  </objectgroup>
  <layer id="10" name="wall" width="48" height="48">
   <data encoding="base64" compression="zlib">
-   eJzt2cEJwCAQBVE9pv+G04GIZv0B34AnxRk8rq0BQIanaKU8wC59ce8v3lv7ZxyVd59w6M869Gcd+rMO/VmH/qxDf9ahP+vQn3Xozzr0Zx366xwz89TRmXT/Ll95R29UObNOeXEv/o8AYI0XscwD6Q==
+   eJztmTEKgDAQwNrR/3/YxS5WqxxeYyGBmwKSVrhBayllW3TqMatiP4v9LK0/Yzeccf/02M8y6h+dK+PM0Q77c539rLOfdfazzn7W2c86+1lnP+vsZ539rLOfdfazbnb/1bfbN+4v/VG+7o/eY5S7Zz69s4y7nIX9LK3f/0cM9rPYz5K1e2bODjMdB3E=
   </data>
  </layer>
 </map>

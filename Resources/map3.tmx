@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.2" tiledversion="1.2.4" orientation="orthogonal" renderorder="right-down" width="65" height="80" tilewidth="32" tileheight="32" infinite="0" nextlayerid="6" nextobjectid="3">
+ <tileset firstgid="1" name="地板合计" tilewidth="32" tileheight="32" tilecount="240" columns="16">
+  <image source="地板合计.png" width="512" height="480"/>
+  <tile id="0">
+   <properties>
+    <property name="collidable" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="10">
+   <properties>
+    <property name="collidable" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="48">
+   <properties>
+    <property name="collidable" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="58">
+   <properties>
+    <property name="collidable" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="90">
+   <properties>
+    <property name="collidable" type="bool" value="false"/>
+   </properties>
+  </tile>
+ </tileset>
+ <layer id="2" name="ground" width="65" height="80">
+  <data encoding="base64" compression="zlib">
+   eJzt0LEJAAAIBLHf0/33sLW1E8nBLZBEkiRtqkczYMCAAQMGDBgwYMCAAQMGDBgwYMCAAQMGDBgwYMCAAQMGDBgwYMCAAQMGDBgwYMCAAQMGDBgwYHDZQJIkSZIkSZKkWQPJVpzB
+  </data>
+ </layer>
+ <layer id="3" name="wall" width="65" height="80">
+  <data encoding="base64" compression="zlib">
+   eJzt20EKwjAQQNF23dO49v73klkIIhaSTpuk8X34G7GxfluiA27LsmwkWeBzIjXQINOglLXiub3QQINAg/EblByffQ0NNAg00CDQ4PoGj+T5zdAgiwZl7y97rc3QIIsGbfaFrDUcWa/FvvDtuvP4njUcWa/HvTDab0kNNAg00CDQYJ4GmTU10CDQQINAAw2CHg2yc59f3K3BFWigQaCBBsEIDc6cix5hhAZnzkXftJpFj3wv1M6fjzbv0aD0c2o1a9FAg0CDORvcYV/QQIOac8x8t6qhR4MrZiif3KHB1WigQdCqAcn/sfd/DkmSJEmSJHkPX0rGckM=
+  </data>
+ </layer>
+ <objectgroup id="4" name="player">
+  <object id="1" name="blue_player" x="322" y="1482" width="348" height="296"/>
+  <object id="2" name="red_player" x="1484" y="336" width="326" height="296"/>
+ </objectgroup>
+</map>

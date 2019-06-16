@@ -51,11 +51,11 @@
  </layer>
  <layer id="2" name="wall" width="48" height="48">
   <data encoding="base64" compression="zlib">
-   eJztmEEOgCAMBDl65P+vNT5AIGnLtLCTeDLpjgSJbms5eWgBI/JnkT9Ldf9OCxSgO13R0HvR+uy0vxX5s8ifZeT/3Ys6L73WbeYfhfznc27337E28mdm78iQP5shfzZD/myG/G0Z1v6A9o+c7ZUb2dFQ37Z/ePZXJ/+3VkD+LCv+dDc8Ijq/Sn9+Aje8S5mRP4v8WbKe0y96hwfJ
+   eJzt2rEOgCAMBFBGRv7/a42Do2mlV67IXcIkKU9M0DT21tooOLpzzj0qxuOSPy/yc7O7fzjmVPZ7EvWjzvrZeP3sZxR9f7H9b5GfG/m5Qfg937mz56VlQ/mzIr9d53R/pLb88sufu0Zmbfnllz93jczaCH+kf2DVXuGPZoU/useWYebacx29t8j+FcOPjPzcnOLP6A0jYq0f3f9d+udV88Vf8T7l50Z+bv7gZ/8nEx0Xmt4QWQ==
   </data>
  </layer>
  <objectgroup id="4" name="player">
-  <object id="1" name="blue_player" x="60" y="2680" width="332" height="320"/>
-  <object id="2" name="red_player" x="2684" y="52" width="332" height="324"/>
+  <object id="1" name="blue_player" x="164" y="2600" width="332" height="320"/>
+  <object id="2" name="red_player" x="2592" y="136" width="332" height="324"/>
  </objectgroup>
 </map>

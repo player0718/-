@@ -45,13 +45,16 @@ public:
 	int ATK = 30;  //攻击力
 	int DEF = 10;  //防御力
 	int RANGE = 200;  //攻击范围
-	int SPEED = 8;  //移动速度
+	int SPEED = 5;  //移动速度
 	int HP_RAISE = 1;  //捡取红心恢复的血量
 	int EXP_RAISE = 1;  //捡取水晶增加的经验值
 
+	int weapon = 1;  //武器类型：1弓箭2地刺3飞镖
 	int arrow_ahead = 1;
 	bool arrow_left_right = false;
 	bool arrow_back = false;
+	bool arrow_shoot_twice = false;
+	bool magnet = false;
 	
 	void hpRaise(int num);  //血量增加
 	bool expRaise(int num);  //经验增加
